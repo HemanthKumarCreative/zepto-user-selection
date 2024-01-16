@@ -1,5 +1,5 @@
 import "./App.css";
-import { Fragment, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import Input from "./components/Input/Input";
 import CardContainer from "./components/CardContainer/CardContainer";
 import userList from "./assets/userList.json";
@@ -11,17 +11,25 @@ function App() {
   const onBlur = () => setFocused(false);
   const [users, setUsers] = useState([]);
   const [source, setSource] = useState(userList);
+  const [inputValue, setInputValue] = useState("");
+  const [filteredUsers, setFilteredUsers] = useState(userList);
+
+  useEffect(() => {
+    setFilteredUsers((prevFilteredUsers) =>
+      source.filter((user) => user?.name.includes(inputValue))
+    );
+  }, [inputValue, source]);
 
   const handleDeleteUser = (userId, user) => {
     setUsers((prevUsers) => prevUsers.filter((user) => user.id !== userId));
-    setSource((prevUsers) => [...prevUsers, user]);
+    setFilteredUsers((prevFilteredUsers) => [...prevFilteredUsers, user]);
   };
 
   const handleAddUser = (user) => {
     console.log("clicked");
     setUsers((prevUsers) => [...prevUsers, user]);
-    setSource((prevUsers) =>
-      prevUsers.filter((prevUser) => prevUser.id !== user.id)
+    setFilteredUsers((prevFilteredUsers) =>
+      prevFilteredUsers.filter((prevUser) => prevUser.id !== user.id)
     );
   };
 
@@ -37,9 +45,14 @@ function App() {
         </div>
       )}
       <div className="organiser">
-        <Input onFocus={onFocus} onBlur={onBlur} />
+        <Input
+          onFocus={onFocus}
+          onBlur={onBlur}
+          inputValue={inputValue}
+          setInputValue={setInputValue}
+        />
         {focused && (
-          <CardContainer users={source} handleAddUser={handleAddUser} />
+          <CardContainer users={filteredUsers} handleAddUser={handleAddUser} />
         )}
       </div>
     </Fragment>

@@ -19,6 +19,7 @@ body {
   margin-bottom: 20px;
   margin-top: 1rem;
   margin: 1rem auto;
+  max-width: 50rem;
 }
 
 /* Style for the input field */

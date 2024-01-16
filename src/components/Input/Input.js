@@ -1,9 +1,7 @@
 import React, { useState } from "react";
 import "./Input.css"; // Import the CSS file
 
-const Input = ({ onFocus, onBlur }) => {
-  const [inputValue, setInputValue] = useState("");
-
+const Input = ({ onFocus, inputValue, setInputValue }) => {
   const handleChange = (event) => {
     setInputValue(event.target.value);
   };
@@ -17,7 +15,6 @@ const Input = ({ onFocus, onBlur }) => {
         onChange={handleChange}
         placeholder="Add new user..."
         onFocus={onFocus}
-        // onBlur={onBlur}
       />
     </div>
   );
