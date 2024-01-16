@@ -1,0 +1,60 @@
+/* Reset some default styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  height: 100vh;
+  margin: 0;
+}
+
+/* Style for the container */
+.input-container {
+  position: relative;
+  width: 90%;
+  margin-bottom: 20px;
+  margin-top: 1rem;
+  margin: 1rem auto;
+}
+
+/* Style for the input field */
+.underlined-input {
+  width: 100%;
+  padding: 8px;
+  border: none;
+  border-bottom: 2px solid #2196f3; /* Change the color to your desired underline color */
+  outline: none;
+  transition: border-bottom-color 0.3s ease;
+}
+
+/* Highlight the underline when input is focused */
+.underlined-input:focus {
+  border-bottom-color: #ff5722; /* Change the color to your desired highlight color */
+}
+
+/* Style for the label */
+.input-label {
+  position: absolute;
+  pointer-events: none;
+  left: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: top 0.3s ease, font-size 0.3s ease;
+}
+
+/* Move the label above the input when it has content */
+.underlined-input:not(:placeholder-shown) + .input-label,
+.underlined-input:focus + .input-label {
+  top: 8px;
+  font-size: 12px;
+}
+
+/* Additional style for the input field when it has value */
+.underlined-input.has-value + .input-label {
+  top: 8px;
+  font-size: 12px;
+}

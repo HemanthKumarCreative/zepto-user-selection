@@ -1,0 +1,49 @@
+/* Chip.css */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  background-color: #f0f0f0;
+  border: 1px solid #ddd;
+  border-radius: 16px;
+  padding: 8px;
+  margin-right: 8px;
+  margin-bottom: 8px;
+}
+
+.chip-content {
+  display: flex;
+  align-items: center;
+}
+
+.chip-image {
+  width: 24px;
+  height: 24px;
+  overflow: hidden;
+  border-radius: 50%;
+  margin-right: 8px;
+}
+
+.chip-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.chip-details {
+  flex: 1;
+}
+
+.chip-details p {
+  margin: 0;
+  font-size: 14px;
+}
+
+.delete-button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  color: #555;
+  font-size: 16px;
+  margin-left: 8px;
+}
