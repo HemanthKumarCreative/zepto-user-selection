@@ -16,7 +16,9 @@ function App() {
 
   useEffect(() => {
     setFilteredUsers((prevFilteredUsers) =>
-      source.filter((user) => user?.name.includes(inputValue))
+      source.filter((user) =>
+        user?.name.includes(inputValue.toLocaleLowerCase())
+      )
     );
   }, [inputValue, source]);
 
