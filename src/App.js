@@ -26,7 +26,6 @@ function App() {
   };
 
   const handleAddUser = (user) => {
-    console.log("clicked");
     setUsers((prevUsers) => [...prevUsers, user]);
     setFilteredUsers((prevFilteredUsers) =>
       prevFilteredUsers.filter((prevUser) => prevUser.id !== user.id)
