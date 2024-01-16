@@ -10,14 +10,19 @@ function App() {
   const onFocus = () => setFocused(true);
   const onBlur = () => setFocused(false);
   const [users, setUsers] = useState([]);
+  const [source, setSource] = useState(userList);
 
-  const handleDeleteUser = (userId) => {
+  const handleDeleteUser = (userId, user) => {
     setUsers((prevUsers) => prevUsers.filter((user) => user.id !== userId));
+    setSource((prevUsers) => [...prevUsers, user]);
   };
 
   const handleAddUser = (user) => {
     console.log("clicked");
     setUsers((prevUsers) => [...prevUsers, user]);
+    setSource((prevUsers) =>
+      prevUsers.filter((prevUser) => prevUser.id !== user.id)
+    );
   };
 
   return (
@@ -34,7 +39,7 @@ function App() {
       <div className="organiser">
         <Input onFocus={onFocus} onBlur={onBlur} />
         {focused && (
-          <CardContainer users={userList} handleAddUser={handleAddUser} />
+          <CardContainer users={source} handleAddUser={handleAddUser} />
         )}
       </div>
     </Fragment>

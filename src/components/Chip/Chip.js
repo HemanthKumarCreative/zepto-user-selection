@@ -14,7 +14,7 @@ const Chip = ({ user, onDelete }) => (
         <p>{user.name}</p>
       </div>
     </div>
-    <button className="delete-button" onClick={() => onDelete(user.id)}>
+    <button className="delete-button" onClick={() => onDelete(user.id, user)}>
       &#10006;
     </button>
   </div>
