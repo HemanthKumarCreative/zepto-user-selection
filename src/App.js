@@ -49,6 +49,9 @@ function App() {
           onBlur={onBlur}
           inputValue={inputValue}
           setInputValue={setInputValue}
+          users={users}
+          setUsers={setUsers}
+          setFilteredUsers={setFilteredUsers}
         />
         {focused && (
           <CardContainer users={filteredUsers} handleAddUser={handleAddUser} />
