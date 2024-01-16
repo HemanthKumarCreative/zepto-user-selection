@@ -15,11 +15,13 @@ const Input = ({
 
   const handleKeyDown = (event) => {
     if (event.key === "Backspace") {
-      setFilteredUsers((prevFilteredUsers) => [
-        ...prevFilteredUsers,
-        users[users?.length - 1],
-      ]);
-      setUsers(users?.slice(0, users?.length - 1));
+      if (users?.length > 0) {
+        setFilteredUsers((prevFilteredUsers) => [
+          ...prevFilteredUsers,
+          users[users?.length - 1],
+        ]);
+        setUsers(users?.slice(0, users?.length - 1));
+      }
     }
   };
 
